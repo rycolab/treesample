@@ -1,4 +1,4 @@
-# treesample
+# Tree Sampling Algorithms
 This library contains implementations for two sampling algorithms discussed in
 ["Efficient Sampling of Dependency Structure"]().
 The original algorithms are due to Wilson (1996) and Colbourn et al. (1996).
