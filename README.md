@@ -1,11 +1,11 @@
 # Tree Sampling Algorithms
 This library contains implementations for two sampling algorithms discussed in
-["Efficient Sampling of Dependency Structure"]().
+["Efficient Sampling of Dependency Structure"](https://aclanthology.org/2021.emnlp-main.824/).
 The original algorithms are due to Wilson (1996) and Colbourn et al. (1996).
 While not originally present in the algorithms, this library contains extensions that allows sampling trees
 with a root constraint.
 While Wilson's algorithm has a faster runtime (O(H) where H is the mean hitting time) than
-Colbourn's algorithm (O(N^3) where N is the number of nodes in the tree), Cobourn's algorithm
+Colbourn's algorithm (O(N^3) where N is the number of nodes in the tree), Colbourn's algorithm
 is amenable to sampling without replacement. See the above paper for explanations of all algorithms.
 
 ## Citation
@@ -20,11 +20,14 @@ Please cite as:
     author = "Zmigrod, Ran  and
       Vieira, Tim  and
       Cotterell, Ryan",
-    booktitle = "Proceedings of the 2021 Conference on Empirical Methods in Natural Language Processing (EMNLP)",
+    booktitle = "Proceedings of the 2021 Conference on Empirical Methods in Natural Language Processing",
     month = nov,
     year = "2021",
-    address = "Online",
+    address = "Online and Punta Cana, Dominican Republic",
     publisher = "Association for Computational Linguistics",
+    url = "https://aclanthology.org/2021.emnlp-main.824",
+    doi = "10.18653/v1/2021.emnlp-main.824",
+    pages = "10558--10569",
 }
 ```
 
