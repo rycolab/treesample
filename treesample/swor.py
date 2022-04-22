@@ -22,7 +22,6 @@ class TreeSample:
         self._B = np.linalg.inv(self._L).transpose()
         self.L = None
         self.B = None
-        # self.Z = np.linalg.det(self._L)
 
     def _sample_edge(self, j):
         marginals = self._get_marginals(j) # O(n)
@@ -64,19 +63,13 @@ class TreeSample:
     def weight(self, tree):
         return np.prod(self.W[(tree[1:], np.arange(1, self.n+1))])
 
-    # def prob(self, tree):
-    #     return self.weight(tree) / self.Z
-
     def _sample(self):
-        """
-        Sample without replacement
-        """
         self.L = np.copy(self._L)
         self.B = np.copy(self._B)
         tree = - np.ones(self.n + 1).astype(int)
         p = 1.0
         for j in range(self.n):
-            i, p_i = self._sample_edge(j)  # O(nk)
+            i, p_i = self._sample_edge(j)  # O(n)
             p *= p_i
             if i == j:
                 tree[j+1] = 0
@@ -199,14 +192,14 @@ class TreeSwor:
         tree = - np.ones(self.n + 1).astype(int)
         p = 1.0
         for j in range(self.n):
-            i, p_i = self._sample_edge(j) # O(nk)
+            i, p_i = self._sample_edge(j)  # O(K N)
             p *= p_i
             if i == j:
                 tree[j+1] = 0
             else:
                 tree[j+1] = i+1
-            self.replace_col(i, j) # O(n^2)
-            self._update_trees(i, j) # O(k)
+            self.replace_col(i, j)  # O(N^2)
+            self._update_trees(i, j)  # O(K)
         weight = self.weight(tree)
         self._trees.append((tree, weight))
         self._Z_ts += weight
